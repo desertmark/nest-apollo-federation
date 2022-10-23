@@ -12,14 +12,15 @@ This repository is made up of three NestJS projects located inside the `packages
 
 Our API supports two queries `users` & `posts`. As you can imagine posts are created by users, and therefor, users can have many posts created and each post can have one author represented by a user.
 
-- When we call the `users` query the users resolver will use the service mesh to get the posts of that user from the `posts` micro service
-- When we call the `posts` query the posts resolver will use the call `users` micro service to get the author user of each post.
+- When we call the `users` query the users resolver will use the service mesh to get the posts of each user from the `posts` micro service
+- When we call the `posts` query the posts resolver will use the service mesh to get get the author user of each post from the `users` micro service.
 
 Because both microservices expose a different graphql server, we need one last peace that join both APIs into one single endpoint that exposes the full graphql schema, this is the gateway project. The gateway only contains the configuration to create a super graph based on the microservices sub graph
 
 ## Run the PoC
 
-To run the PoC  
+To run the PoC
+
 1. `yarn install`
 
 2. Run the Nats Container `docker-compose up`
