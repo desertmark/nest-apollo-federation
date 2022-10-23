@@ -1,0 +1,16 @@
+{
+  "name": "nest-apollo-federation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "author": "Fernando Asulay <fernando.asulay@gmail.com>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "gw": "yarn workspace gateway run start:dev",
+    "users": "yarn workspace posts run start:dev",
+    "posts": "yarn workspace users run start:dev"
+  }
+}
