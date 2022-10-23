@@ -19,14 +19,15 @@ Because both microservices expose a different graphql server, we need one last p
 
 ## Run the PoC
 
-To run the PoC
+To run the PoC  
+1. `yarn install`
 
-1. Run the Nats Container `docker-compose up`
+2. Run the Nats Container `docker-compose up`
 
-2. now, open three terminals and run these three commands, be sure to run the last one (the gateway) after the two microservices are up and running:
+3. now, open three terminals and run these three commands, be sure to run the last one (the gateway) after the two microservices are up and running:
 
    - `yarn run users`
    - `yarn run posts`
    - `yarn run gw`
 
-3. Go to the gateway's playground to test the queries in `https://localhost:3000/graphql`
+4. Go to the gateway's playground to test the queries in `https://localhost:3000/graphql`
