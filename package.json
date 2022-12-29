@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "gw": "yarn workspace gateway run start:dev",
-    "users": "yarn workspace posts run start:dev",
-    "posts": "yarn workspace users run start:dev"
+    "users": "yarn workspace users run start:dev",
+    "posts": "yarn workspace posts run start:dev"
   }
 }

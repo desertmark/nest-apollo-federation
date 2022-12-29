@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { Injectable } from '@nestjs/common';
+import { ServiceBroker } from 'moleculer';
 import { User } from './user.entity';
 import { lastValueFrom } from 'rxjs';
 
@@ -29,12 +29,12 @@ const users = [
 @Injectable()
 export class UsersService {
   private _users: User[] = users;
-  constructor(@Inject('serviceMesh') private serviceMesh: ClientProxy) {}
+  constructor(private broker: ServiceBroker) {}
 
   async all(): Promise<User[]> {
     const tasks = this._users.map(async (u) => {
       u.posts = await lastValueFrom(
-        this.serviceMesh.send('posts.getByUserId', u.id),
+        this.broker.send('posts.getByUserId', u.id),
       );
       return u;
     });
